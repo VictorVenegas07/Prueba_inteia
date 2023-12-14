@@ -6,6 +6,9 @@ namespace Application.Feature.Commands.Provider.UpdateProvider
     {
         public UpdateProviderCommandValidator()
         {
+            RuleFor(command => command.Id)
+                .NotNull().WithMessage("El identificador de la compañía no puede ser vacio.");
+
             RuleFor(command => command.CompanyInfo)
                 .NotNull().WithMessage("La información de la compañía no puede ser nula.")
                 .When(commad => commad.CompanyInfo is not null);

@@ -2,6 +2,7 @@
 using Domain.Common;
 using Domain.Common.Exceptions;
 using Domain.Entities;
+using System;
 
 namespace Application.Services
 {
@@ -16,15 +17,15 @@ namespace Application.Services
 
         public async Task<string> Create(Provider entity)
         {
+            await Exists(entity.NIT); 
             await _providerRepository.CreateAsync(entity);
-            return Message.RegisteredSuccessfully;
+            return entity.Id.ToString();
         }
 
-        public async Task<string> Delete(string id)
+        public async Task Delete(string id)
         {
             await GetById(id);
             await _providerRepository.DeleteAsync(id);
-            return Message.UpdatedSuccessfully;
         }
 
         public async Task<List<Provider>> GetAll()
@@ -34,21 +35,22 @@ namespace Application.Services
 
         public async Task<Provider> GetById(string id)
         {
-            var existingProvider = await _providerRepository.GetByIdAsync(id);
-
-            if (existingProvider is null)
-            {
-                throw new ApiExceptionHandler(Message.ItWasNotFound);
-            }
-            return existingProvider;
+            var providerFound = await _providerRepository.GetByIdAsync(id);
+            _ = providerFound ?? throw new ExistingRecordException(Message.ItWasNotFound);
+            return providerFound;
         }
 
-        public async Task<string> Update(string id, Provider entity)
+        public async Task Update(string id, Provider entity)
         {
             var existigProvider = await GetById(id);
             existigProvider.Update(entity.ContactInfo, entity.CompanyInfo);
             await _providerRepository.UpdateAsync(existigProvider);
-            return Message.UpdatedSuccessfully;
+        }
+
+        private async Task<bool> Exists(int nit)
+        {
+            var isExists = await _providerRepository.ExistsAsync(p => p.NIT == nit);
+            return (!isExists)? isExists: throw new ExistingRecordException($"Proveedor con NIT {nit} ya existe.");
         }
     }
 }

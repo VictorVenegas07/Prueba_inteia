@@ -21,7 +21,7 @@ namespace Application.Feature.Commands.Provider.CraeteProvider
         {
             var provider = _mapper.Map<EntityProvider>(request);
             var response = await _service.Create(provider);
-            return new Response<string>(Message.RegisteredSuccessfully, response);
+            return new Response<string>( response, Message.RegisteredSuccessfully);
         }
     }
 }

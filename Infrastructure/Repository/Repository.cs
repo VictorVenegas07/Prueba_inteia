@@ -59,5 +59,12 @@ namespace Infrastructure.Repository
             var combinedFilter = _globalFilter & filter;
             return await _collection.Find(combinedFilter).FirstOrDefaultAsync();
         }
+
+        public async Task<bool> ExistsAsync(Expression<Func<T, bool>> filter)
+        {
+            var combinedFilter = _globalFilter & filter;
+            var count = await _collection.CountDocumentsAsync(combinedFilter);
+            return count > 0;
+        }
     }
 }

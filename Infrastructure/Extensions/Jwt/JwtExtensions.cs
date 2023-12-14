@@ -1,8 +1,11 @@
-﻿using Domain.Settings;
+﻿using Application.Common.Wrappers;
+using Domain.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace Infrastructure.Extensions.Jwt
@@ -28,6 +31,7 @@ namespace Infrastructure.Extensions.Jwt
                     ValidAudience = configuration["JWTSettings:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWTSettings:Key"]))
                 };
+                
             });
             return services;
         }
