@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace Infrastructure.Extensions.Mediator
+namespace Application.Extensions.Mediator
 {
     public static class MediatorExtensions
     {

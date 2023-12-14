@@ -9,9 +9,8 @@ namespace Infrastructure.Extensions.Swagger
         {
             return services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
-
-                // Configuración para Swagger y JWT
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Prueba tenica Inteia API", Version = "v1" });
+                //c.examepl
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme.",
@@ -22,6 +21,7 @@ namespace Infrastructure.Extensions.Swagger
                     BearerFormat = "JWT"
 
                 });
+                
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                      {
                         {
@@ -36,6 +36,7 @@ namespace Infrastructure.Extensions.Swagger
                             new string[] { }
                         }
                     });
+            
             });
         }
     }

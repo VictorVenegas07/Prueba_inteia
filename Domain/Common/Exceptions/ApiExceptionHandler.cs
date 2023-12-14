@@ -1,12 +1,11 @@
 ﻿
-using System.Net;
-using System.Text.Json;
+using Application.Common.Exceptions;
 using Application.Common.Wrappers;
-using System.Net.Http;
 using Microsoft.AspNetCore.Http;
 using System.Globalization;
+using System.Net;
 
-namespace Application.Common.Exceptions
+namespace Domain.Common.Exceptions
 {
     public class ApiExceptionHandler : Exception, IErrorHandler
     {
@@ -16,10 +15,9 @@ namespace Application.Common.Exceptions
         {
 
         }
-
         public async Task HandleError(HttpContext context, Response<string> response)
         {
-            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            context.Response.StatusCode =  (int)HttpStatusCode.BadRequest;
         }
     }
 }

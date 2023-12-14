@@ -12,9 +12,14 @@ namespace Domain.Entities
         public CompanyInfo CompanyInfo { get; set; }
 
         public bool IsActive { get; set; }
-        [BsonElement("Contac")]
+        [BsonElement("Contact")]
 
         public ContactInfo ContactInfo { get; set; }
+
+        public void Update(ContactInfo? contactInfo, CompanyInfo? companyInfo) {
+          if(contactInfo is not null) { ContactInfo.Update(contactInfo.ContactName, contactInfo.ContactEmail); }
+          if (companyInfo is not null) { CompanyInfo.Update(companyInfo.CompanyName, companyInfo.Address, companyInfo.City, companyInfo.Department, companyInfo.Email);}
+        }
 
     }
 }

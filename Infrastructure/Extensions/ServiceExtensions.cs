@@ -1,6 +1,5 @@
 ﻿using Infrastructure.Extensions.Cors;
-using Infrastructure.Extensions.Mapper;
-using Infrastructure.Extensions.Mediator;
+using Infrastructure.Extensions.Jwt;
 using Infrastructure.Extensions.Middlewares;
 using Infrastructure.Extensions.Persistence;
 using Infrastructure.Extensions.Swagger;
@@ -18,8 +17,7 @@ namespace Infrastructure.Extensions
         {
             services
                 .AddCorsPolicy(configuration)
-                .AddMapper()
-                .AddMediator()
+                .AddJwtSetting(configuration)
                 .AddValidation()
                 .AddSwaggerSetting()
                 .AddContextDataBase(configuration)

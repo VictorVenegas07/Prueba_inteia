@@ -27,7 +27,8 @@ namespace Infrastructure.Adapters
                 var errors = resultValidation.SelectMany(x => x.Errors).Where(x => x != null).ToList();
                 if(errors.Any())
                 {
-                    throw new ValidationsExceptionHandler(errors);
+                    var _errors = errors.Select(x => x.ErrorMessage).ToList();
+                    throw new ValidationsExceptionHandler(_errors);
                 }
             }
             return await next();

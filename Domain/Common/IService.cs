@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Common
+﻿namespace Domain.Common
 {
     public interface IService<T> where T : BaseEntity
     {
         Task<List<T>> GetAll();
         Task<T> GetById(string id);
-        Task Create(T entity);
-        Task SoftDelete(string id);
+        Task<string> Create(T entity);
+        Task<string> Update(string id,T entity);
+        Task<string> Delete(string id);
 
     }
 }

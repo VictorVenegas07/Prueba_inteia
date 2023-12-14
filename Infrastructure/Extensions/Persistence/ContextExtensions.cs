@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Context;
+using Infrastructure.Inicialize;
 using Infrastructure.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +20,6 @@ namespace Infrastructure.Extensions.Persistence
             //services.AddSingleton<IMongoDbSettings>(sp => sp.GetRequiredService<IOptions<MongoDbSettings>>().Value);
             services.AddSingleton<MongoDbSettings>(sp => sp.GetRequiredService<IOptions<MongoDbSettings>>().Value);
             services.AddSingleton<IMongoDbContext, MongoDbContext>();
-
             return services;
         }
     }
