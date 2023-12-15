@@ -1,7 +1,8 @@
 ﻿using Application.Services;
 using Domain.Common;
-using Domain.Common.Security;
+using Domain.Common.Interfaces;
 using Domain.Entities;
+using Infrastructure.Repository;
 using Infrastructure.Security;
 using Microsoft.Extensions.DependencyInjection;
 

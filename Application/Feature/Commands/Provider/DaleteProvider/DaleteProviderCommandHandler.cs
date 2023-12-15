@@ -1,6 +1,5 @@
 ﻿using Application.Common.Wrappers;
 using Application.Services;
-using Domain.Common.Exceptions;
 using MediatR;
 
 namespace Application.Feature.Commands.Provider.DaleteProvider

@@ -10,8 +10,8 @@ namespace Infrastructure.Extensions.Swagger
     {
         public static IServiceCollection AddSwaggerSetting(this IServiceCollection services)
         {
-            services.Configure<RouteOptions>(options=> options.LowercaseUrls = true);
             services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
+            services.Configure<RouteOptions>(options=> options.LowercaseUrls = true);
             return services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo 

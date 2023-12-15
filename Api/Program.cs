@@ -1,5 +1,5 @@
 using Application.Extensions;
-using Domain.Common.Security;
+using Domain.Common.Interfaces;
 using Infrastructure.Context;
 using Infrastructure.Extensions;
 using Infrastructure.Inicialize;

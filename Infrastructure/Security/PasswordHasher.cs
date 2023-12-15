@@ -1,4 +1,4 @@
-﻿using Domain.Common.Security;
+﻿using Domain.Common.Interfaces;
 using System.Text;
 
 namespace Infrastructure.Security

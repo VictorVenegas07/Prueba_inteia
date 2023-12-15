@@ -1,14 +1,9 @@
-﻿using Application.Common.Exceptions;
-using Application.Common.Wrappers;
+﻿using Application.Common.Wrappers;
+using Domain.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Domain.Common.Exceptions
+namespace Application.Exceptions
 {
     public class UnauthorizedAccessException : Exception, IErrorHandler
     {

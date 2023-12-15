@@ -1,4 +1,4 @@
-﻿using Domain.Common.Security;
+﻿using Domain.Common.Interfaces;
 using Domain.Entities;
 using Infrastructure.Context;
 using MongoDB.Driver;

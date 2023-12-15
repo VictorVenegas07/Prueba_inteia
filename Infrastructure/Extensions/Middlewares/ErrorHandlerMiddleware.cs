@@ -1,5 +1,6 @@
-﻿using Application.Common.Exceptions;
+﻿using Application.Common;
 using Application.Common.Wrappers;
+using Domain.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System.Net;
 using System.Text.Json;

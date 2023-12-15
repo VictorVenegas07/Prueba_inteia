@@ -1,12 +1,11 @@
-﻿namespace Domain.Common
+﻿namespace Domain.Common.Interfaces
 {
     public interface IService<T> where T : BaseEntity
     {
         Task<List<T>> GetAll();
         Task<T> GetById(string id);
         Task<string> Create(T entity);
-        Task<string> Update(string id,T entity);
-        Task<string> Delete(string id);
-
+        Task Update(string id, T entity);
+        Task Delete(string id);
     }
 }

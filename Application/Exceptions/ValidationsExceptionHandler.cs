@@ -1,8 +1,9 @@
 ﻿using Application.Common.Wrappers;
 using Microsoft.AspNetCore.Http;
 using System.Net;
+using Domain.Common.Interfaces;
 
-namespace Application.Common.Exceptions
+namespace Application.Exceptions
 {
     public class ValidationsExceptionHandler : Exception, IErrorHandler
     {

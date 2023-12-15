@@ -3,9 +3,7 @@ using Infrastructure.Extensions.Jwt;
 using Infrastructure.Extensions.Middlewares;
 using Infrastructure.Extensions.Persistence;
 using Infrastructure.Extensions.Swagger;
-using Infrastructure.Extensions.Validators;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,7 +16,6 @@ namespace Infrastructure.Extensions
             services
                 .AddCorsPolicy(configuration)
                 .AddJwtSetting(configuration)
-                .AddValidation()
                 .AddSwaggerSetting()
                 .AddContextDataBase(configuration)
                 .AddPersistenceServices();

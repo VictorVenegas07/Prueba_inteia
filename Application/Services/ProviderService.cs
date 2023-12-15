@@ -1,12 +1,11 @@
-﻿using Application.Common.Exceptions;
-using Domain.Common;
-using Domain.Common.Exceptions;
+﻿using Application.Exceptions;
+using Domain.Common.Interfaces;
 using Domain.Entities;
 using System;
 
 namespace Application.Services
 {
-    public class ProviderService 
+    public class ProviderService : IService<Provider>
     {
         private readonly IRepository<Provider> _providerRepository;
 
@@ -24,7 +23,7 @@ namespace Application.Services
 
         public async Task Delete(string id)
         {
-            await GetById(id);
+            var provider = await GetById(id);
             await _providerRepository.DeleteAsync(id);
         }
 
@@ -44,7 +43,7 @@ namespace Application.Services
         public async Task Update(string id, Provider entity)
         {
             var existigProvider = await GetById(id);
-            existigProvider.Update(entity.ContactInfo, entity.CompanyInfo);
+            existigProvider.Update(entity.ContactInfo, entity.CompanyInfo, entity.IsActive);
             await _providerRepository.UpdateAsync(existigProvider);
         }
 

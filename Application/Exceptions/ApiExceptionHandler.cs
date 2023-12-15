@@ -1,11 +1,11 @@
 ﻿
-using Application.Common.Exceptions;
 using Application.Common.Wrappers;
+using Domain.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System.Globalization;
 using System.Net;
 
-namespace Domain.Common.Exceptions
+namespace Application.Exceptions
 {
     public class ApiExceptionHandler : Exception, IErrorHandler
     {

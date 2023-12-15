@@ -1,9 +1,9 @@
-﻿using Application.Common.Exceptions;
-using Application.Common.Wrappers;
+﻿using Application.Common.Wrappers;
 using Microsoft.AspNetCore.Http;
 using System.Net;
+using Domain.Common.Interfaces;
 
-namespace Domain.Common.Exceptions
+namespace Application.Exceptions
 {
     public class NoContentException : Exception, IErrorHandler
     {

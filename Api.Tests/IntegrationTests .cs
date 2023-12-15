@@ -112,6 +112,7 @@ namespace Api.Tests
             var id = "657a4bb67f2a33834ec263c3";
             var command = new UpdateProviderCommand
              (Id: "657a4bb67f2a33834ec263c3",
+                true,
               CompanyInfo: new UpdateCompanyCommand("Nuevo tests de la Compañía tests", "Nueva Dirección tests", "Nueva Ciudad tests", "Nuevo Departamento tests", "nuevo@tests.com"),
               ContactInfo: new UpdateContactCommand("Nuevo tests de Contacto", "nuevotests@correo.com")
              );
@@ -136,6 +137,7 @@ namespace Api.Tests
             var notExistId = "657a4bb67f2a33834ec999c3";
             var command = new UpdateProviderCommand
              (Id: "657a4bb67f2a33834ec999c3",
+             true,
               CompanyInfo: new UpdateCompanyCommand("Nuevo tests de la Compañía tests", "Nueva Dirección tests", "Nueva Ciudad tests", "Nuevo Departamento tests", "nuevo@tests.com"),
               ContactInfo: new UpdateContactCommand("Nuevo tests de Contacto", "nuevotests@correo.com")
              );
@@ -160,6 +162,7 @@ namespace Api.Tests
             var notExistId = "657a4bb67f2a33834ec263c3";
             var command = new UpdateProviderCommand
              (Id: "657a4bb67f2a33834ec263c3",
+               true,
               CompanyInfo: null,
               ContactInfo: new UpdateContactCommand(null, "")
              );

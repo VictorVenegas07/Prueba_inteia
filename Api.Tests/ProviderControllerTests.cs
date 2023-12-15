@@ -66,6 +66,7 @@ namespace Api.Tests
             var id = "657a4bb67f2a33834ec263c3";
             var command = new UpdateProviderCommand
              (Id: "657a4bb67f2a33834ec263c3",
+             true,
               CompanyInfo: new UpdateCompanyCommand("Nuevo Nombre de la Compañía","Nueva Dirección","Nueva Ciudad","Nuevo Departamento","nuevo@correo.com"),
               ContactInfo: new UpdateContactCommand("Nuevo Nombre de Contacto","nuevocontacto@correo.com")
              );

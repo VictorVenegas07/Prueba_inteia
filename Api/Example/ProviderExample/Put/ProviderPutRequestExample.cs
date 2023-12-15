@@ -10,6 +10,7 @@ namespace Api.Example.ProviderExample.Put
         {
             var example = new UpdateProviderCommand(
               Id: "657a53195d04024da6b6efc1",
+              true,
               CompanyInfo: new UpdateCompanyCommand
               (
                   "Nuevo Nombre de la Compañía",

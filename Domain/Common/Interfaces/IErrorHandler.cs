@@ -2,7 +2,7 @@
 using Application.Common.Wrappers;
 using Microsoft.AspNetCore.Http;
 
-namespace Application.Common.Exceptions
+namespace Domain.Common.Interfaces
 {
     public interface IErrorHandler
     {

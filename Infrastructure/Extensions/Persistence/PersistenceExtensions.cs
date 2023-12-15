@@ -1,8 +1,5 @@
-﻿using Domain.Common;
-using Domain.Common.Security;
-using Infrastructure.Inicialize;
+﻿using Domain.Common.Interfaces;
 using Infrastructure.Repository;
-using Infrastructure.Security;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.Extensions.Persistence
