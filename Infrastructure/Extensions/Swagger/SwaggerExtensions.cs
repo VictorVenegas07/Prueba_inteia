@@ -14,7 +14,18 @@ namespace Infrastructure.Extensions.Swagger
             services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
             return services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Prueba tenica Inteia API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo 
+                { 
+                    Title = "Prueba tenica Inteia API",
+                    Version = "v1",
+                    Description = "API para gestionar proveedores",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Victor Venegas",
+                        Email = "victorvenegas07@email.com",
+                        Url = new Uri("https://github.com/VictorVenegas07"),
+                    },
+                });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme.",

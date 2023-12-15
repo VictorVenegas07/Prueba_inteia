@@ -9,21 +9,22 @@ using Application.Feature.Commands.Provider.UpdateProvider;
 using Application.Feature.Queires.ProviderQueries.GetAll;
 using Domain.Common;
 using Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace Api.Controllers
 {
-    [Authorize]
-    public class ProviderController : BaseApiController
+    [Route("api/[controller]")]
+    [ApiController]
+    //[Authorize]
+    public class ProviderController : ControllerBase
     {
-        private readonly IRepository<Provider> _repository;
+        private readonly IMediator _mediator;
 
-        public ProviderController(IRepository<Provider> repository)
-        {
-            _repository = repository;
-        }
+        public ProviderController(IMediator mediator) => _mediator = mediator;
+
         /// <summary>
         /// Crea un nuevo proveedor.
         /// </summary>
@@ -40,7 +41,7 @@ namespace Api.Controllers
         [SwaggerResponseExample(409, typeof(ProviderResponseExistExample))]
         [SwaggerResponseExample(400, typeof(ProviderResponseErrorValidationExample))]
         [SwaggerRequestExample(typeof(CraeteProviderCommand), typeof(ProviderRequestExample))]
-        public async Task<IActionResult> Post(CraeteProviderCommand command) => Ok(await Mediator.Send(command));
+        public async Task<IActionResult> Post(CraeteProviderCommand command) => Ok(await _mediator.Send(command));
 
         /// <summary>
         /// Actualiza un proveedor.
@@ -59,7 +60,7 @@ namespace Api.Controllers
         [SwaggerResponseExample(409, typeof(ProviderResponseNotFoundExample))]
         [SwaggerResponseExample(400, typeof(ProviderResponseValidationExample))]
         [SwaggerRequestExample(typeof(CraeteProviderCommand), typeof(ProviderPutRequestExample))]
-        public async Task<IActionResult> Put(string id, [FromBody] UpdateProviderCommand command) => (id != command.Id)? BadRequest(): Ok(await Mediator.Send(command)) ;
+        public async Task<IActionResult> Put(string id, [FromBody] UpdateProviderCommand command) => (id != command.Id)? BadRequest(): Ok(await _mediator.Send(command)) ;
 
         /// <summary>
         /// Eliminar un proveedor.
@@ -73,7 +74,7 @@ namespace Api.Controllers
         [ProducesResponseType(typeof(Response<string>), 404)]
         [SwaggerResponseExample(200, typeof(ProviderDeleteResponseExample))]
         [SwaggerResponseExample(404, typeof(ProviderResponseNotFoundExample))]
-        public async Task<IActionResult> Delete(string id)=> Ok(await Mediator.Send(new DaleteProviderCommand(id)));
+        public async Task<IActionResult> Delete(string id)=> Ok(await _mediator.Send(new DaleteProviderCommand(id)));
 
         /// <summary>
         /// Obtiene la lista de todos los proveedores.
@@ -83,7 +84,7 @@ namespace Api.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(Response<List<GetAllProvidersDto>>), 200)]
         [SwaggerResponseExample(200, typeof(ProviderGetExample))]
-        public async Task<IActionResult> Get() => Ok(await Mediator.Send(new GetAllProviders()));
+        public async Task<IActionResult> Get() => Ok(await _mediator.Send(new GetAllProviders()));
 
     }
 }
