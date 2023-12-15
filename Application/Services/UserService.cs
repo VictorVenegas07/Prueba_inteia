@@ -1,8 +1,7 @@
 ﻿using Domain.Common;
-using Domain.Common.Exceptions;
 using Domain.Common.Security;
 using Domain.Entities;
-using Infrastructure.Security;
+using UnauthorizedAccessException = Domain.Common.Exceptions.UnauthorizedAccessException;
 
 namespace Application.Services
 {
@@ -20,12 +19,12 @@ namespace Application.Services
         public async Task<User> AuthenticateAsync(string username, string password)
         {
             var user = await _repository.GetSingleAsync(n => n.UserName == username);
-            if (user is null) {
-                throw new ApiExceptionHandler(Message.UsernameDoesNotExist);
-            }
+
+            _ = user ?? throw new UnauthorizedAccessException(Message.InvalidCredentials);
+
             if(!VerifyPassword(password, user.password))
             {
-                throw new ApiExceptionHandler(Message.InvalidCredentials);
+                throw new UnauthorizedAccessException(Message.InvalidCredentials);
             }
             return user;
         }

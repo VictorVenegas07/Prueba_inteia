@@ -133,15 +133,6 @@ namespace Application {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
-        /// </summary>
-        internal static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Consulta exitosa.
         /// </summary>
         internal static string SuccessfulQuery {

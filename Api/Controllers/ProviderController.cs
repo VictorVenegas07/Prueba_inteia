@@ -1,10 +1,12 @@
 ﻿using Api.Example.ProviderExample.Delete;
+using Api.Example.ProviderExample.Get;
 using Api.Example.ProviderExample.Post;
 using Api.Example.ProviderExample.Put;
 using Application.Common.Wrappers;
 using Application.Feature.Commands.Provider.CraeteProvider;
 using Application.Feature.Commands.Provider.DaleteProvider;
 using Application.Feature.Commands.Provider.UpdateProvider;
+using Application.Feature.Queires.ProviderQueries.GetAll;
 using Domain.Common;
 using Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -72,8 +74,16 @@ namespace Api.Controllers
         [SwaggerResponseExample(200, typeof(ProviderDeleteResponseExample))]
         [SwaggerResponseExample(404, typeof(ProviderResponseNotFoundExample))]
         public async Task<IActionResult> Delete(string id)=> Ok(await Mediator.Send(new DaleteProviderCommand(id)));
-        
 
+        /// <summary>
+        /// Obtiene la lista de todos los proveedores.
+        /// </summary>
+        /// <response code ="200">Devuelve la lista de proveedores</response>
+        /// <returns>Respuesta con la lista de proveedores.</returns>
+        [HttpGet]
+        [ProducesResponseType(typeof(Response<List<GetAllProvidersDto>>), 200)]
+        [SwaggerResponseExample(200, typeof(ProviderGetExample))]
+        public async Task<IActionResult> Get() => Ok(await Mediator.Send(new GetAllProviders()));
 
     }
 }

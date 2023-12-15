@@ -144,9 +144,6 @@
   <data name="RegistrationIsActivated." xml:space="preserve">
     <value>El registro ha sido activado</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value />
-  </data>
   <data name="SuccessfulQuery" xml:space="preserve">
     <value>Consulta exitosa</value>
   </data>
