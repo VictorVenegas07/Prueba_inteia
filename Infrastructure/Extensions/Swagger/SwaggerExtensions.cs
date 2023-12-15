@@ -56,7 +56,6 @@ namespace Infrastructure.Extensions.Swagger
                         }
                     });
                 c.ExampleFilters();
-
             });
         }
     }

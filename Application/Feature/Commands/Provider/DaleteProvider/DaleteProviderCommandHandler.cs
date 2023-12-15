@@ -16,10 +16,6 @@ namespace Application.Feature.Commands.Provider.DaleteProvider
 
         public async Task<Response<string>> Handle(DaleteProviderCommand request, CancellationToken cancellationToken)
         {
-            var existingProvider = await _service.GetById(request.Id);
-            if (existingProvider is null) {
-                throw new ApiExceptionHandler(Message.ItWasNotFound); 
-            }
             await _service.Delete(request.Id);
             return new Response<string>(Message.DeletedSuccessfully);
 

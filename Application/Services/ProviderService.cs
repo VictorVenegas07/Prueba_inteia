@@ -30,13 +30,14 @@ namespace Application.Services
 
         public async Task<List<Provider>> GetAll()
         {
-           return await _providerRepository.GetAllAsync();
+           var response = await _providerRepository.GetAllAsync();
+            return response;
         }
 
         public async Task<Provider> GetById(string id)
         {
             var providerFound = await _providerRepository.GetByIdAsync(id);
-            _ = providerFound ?? throw new ExistingRecordException(Message.ItWasNotFound);
+            _ = providerFound ?? throw new NotFoundException(Message.ItWasNotFound);
             return providerFound;
         }
 

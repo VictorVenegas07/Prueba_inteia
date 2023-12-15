@@ -7,10 +7,7 @@ using Application.Feature.Commands.Provider.CraeteProvider;
 using Application.Feature.Commands.Provider.DaleteProvider;
 using Application.Feature.Commands.Provider.UpdateProvider;
 using Application.Feature.Queires.ProviderQueries.GetAll;
-using Domain.Common;
-using Domain.Entities;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -49,7 +46,7 @@ namespace Api.Controllers
         /// <param name="id">Identificador único del proveedor.</param>
         /// <param name="command">Datos del proveedor a actualizar.</param>
         /// <response code ="200">Devuelve un mensage de actualizó correctamente</response>
-        /// <response code ="409">Devuelve un menssaje donde valida la existencia del proveedor</response>
+        /// <response code ="404">Devuelve un menssaje donde valida la existencia del proveedor</response>
         /// <response code ="400">Paramaetros no validos</response>
         /// <returns>Respuesta con información del resultado.</returns>
         [HttpPut("{id}")]
@@ -57,7 +54,7 @@ namespace Api.Controllers
         [ProducesResponseType(typeof(Response<string>), 409)]
         [ProducesResponseType(typeof(Response<string>), 400)]
         [SwaggerResponseExample(200, typeof(ProvideResponseExample))]
-        [SwaggerResponseExample(409, typeof(ProviderResponseNotFoundExample))]
+        [SwaggerResponseExample(404, typeof(ProviderResponseNotFoundExample))]
         [SwaggerResponseExample(400, typeof(ProviderResponseValidationExample))]
         [SwaggerRequestExample(typeof(CraeteProviderCommand), typeof(ProviderPutRequestExample))]
         public async Task<IActionResult> Put(string id, [FromBody] UpdateProviderCommand command) => (id != command.Id)? BadRequest(): Ok(await _mediator.Send(command)) ;
@@ -79,7 +76,7 @@ namespace Api.Controllers
         /// <summary>
         /// Obtiene la lista de todos los proveedores.
         /// </summary>
-        /// <response code ="200">Devuelve la lista de proveedores</response>
+        /// <response code="200">Devuelve la lista de proveedores.</response>
         /// <returns>Respuesta con la lista de proveedores.</returns>
         [HttpGet]
         [ProducesResponseType(typeof(Response<List<GetAllProvidersDto>>), 200)]
