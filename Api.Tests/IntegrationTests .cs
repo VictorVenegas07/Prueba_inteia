@@ -1,21 +1,9 @@
-﻿using Api.Controllers;
-using Application.Feature.Commands.Provider.CraeteProvider;
+﻿using Application.Feature.Commands.Provider.CraeteProvider;
 using Application.Feature.Commands.Provider.UpdateProvider;
-using MediatR;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Driver;
 using Newtonsoft.Json;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using Xunit.Abstractions;
 
 namespace Api.Tests
@@ -39,7 +27,7 @@ namespace Api.Tests
             return new StringContent(jsonContent, Encoding.UTF8, "application/json");
         }
         [Fact]
-        public async Task Post_EndpointsReturnSuccessAndCorrectContentType()
+        public async Task Post_Endpoints_Return_Success_And_CorrectContentType()
         {
             // Arrange
             var companyInfo = new CreateCompanyCommand(

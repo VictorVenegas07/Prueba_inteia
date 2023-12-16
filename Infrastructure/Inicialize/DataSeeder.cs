@@ -20,14 +20,14 @@ namespace Infrastructure.Inicialize
         }
         public void SeedData()
         {
-            //if (!_collection.AsQueryable().Any())
-            //{
-            //    var users = new List<User>()
-            //    {
-            //        new User { UserName = "vvenegas", password = _passwordHasher.HashPassword("victor2301") },
-            //    };
-            //    _collection.InsertMany(users);
-            //}
+            if (!_collection.AsQueryable().Any())
+            {
+                var users = new List<User>()
+                {
+                    new User { UserName = "vvenegas", password = _passwordHasher.HashPassword("victor2301") },
+                };
+                _collection.InsertMany(users);
+            }
         }
     }
 }

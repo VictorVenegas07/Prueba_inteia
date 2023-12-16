@@ -16,7 +16,6 @@ namespace Infrastructure.Repository
         {
             _dbContext = dbContext;
             _collection = _dbContext.GetCollection<T>();
-            //var globalFilter = Builders<T>.Filter.Eq(e => e.IsDeleted, false);
             _globalFilter = Builders<T>.Filter.Eq(e => e.IsDeleted, false);
         }
 

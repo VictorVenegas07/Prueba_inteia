@@ -17,7 +17,6 @@ namespace Infrastructure.Extensions.Persistence
         public static IServiceCollection AddContextDataBase(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<MongoDbSettings>(configuration.GetSection(typeof(MongoDbSettings).Name));
-            //services.AddSingleton<IMongoDbSettings>(sp => sp.GetRequiredService<IOptions<MongoDbSettings>>().Value);
             services.AddSingleton<MongoDbSettings>(sp => sp.GetRequiredService<IOptions<MongoDbSettings>>().Value);
             services.AddSingleton<IMongoDbContext, MongoDbContext>();
             return services;
