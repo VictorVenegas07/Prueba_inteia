@@ -9,7 +9,6 @@ namespace Infrastructure.Extensions.Persistence
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services)
         {
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
-            //services.AddScoped<IPasswordHasher, PasswordHasher>();
 
             return services;
         }

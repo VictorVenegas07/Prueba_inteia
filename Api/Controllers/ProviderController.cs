@@ -8,6 +8,7 @@ using Application.Feature.Commands.Provider.DaleteProvider;
 using Application.Feature.Commands.Provider.UpdateProvider;
 using Application.Feature.Queires.ProviderQueries.GetAll;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
