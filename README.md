@@ -17,7 +17,7 @@
    
 5. **Inicia un contenedor de MongoDB en la red creada:**
    ```bash
-   docker run -d --network=mi-red --name mi-mongo mongo
+   docker run -d --network=mi-red --name mongo mongo
 
 6. **Construye la imagen de la aplicación y ejecútala en la misma red:**
    ```bash
