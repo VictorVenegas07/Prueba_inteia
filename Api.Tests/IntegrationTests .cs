@@ -12,13 +12,15 @@ namespace Api.Tests
     {
         private readonly WebApplicationFactory<Program> _factory;
         private readonly HttpClient _client;
-        private string _endpoint = "/api/Provider";
+        private readonly string _endpoint = "/api/Provider";
         private readonly ITestOutputHelper _output;
+        private readonly string _accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjY1N2E3ODRlYzcwMDllZGI3ZGQxMDFlNiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJ2dmVuZWdhcyIsImV4cCI6MTcwMjc4MDA1NywiaXNzIjoiUFJVRUJBVEVDTklDQUlTU1VFUiIsImF1ZCI6IlBSVUVCQVRFQ05JQ0FBVURJRU5DRSJ9.no1rbHG2DI8s1CyaNhLGTXrd-n3JnrTRJ5b34gZyMfY";
 
         public IntegrationTests(WebApplicationFactory<Program> factory, ITestOutputHelper output)
         {
             _factory = factory;
             _client = _factory.CreateClient();
+            _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {_accessToken}");
             _output = output;
         }
         private StringContent CreateJsonStringContent<T>(T command)
