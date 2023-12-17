@@ -22,6 +22,6 @@
 6. **Construye la imagen de la aplicación y ejecútala en la misma red:**
    ```bash
    docker build -t nombre-de-tu-aplicacion .
-   docker run -d --network=mi-red -p 80:80 --name mi-app nombre-de-tu-aplicacion
+   docker run -p 80:80 --network mi-red -e ASPNETCORE_ENVIRONMENT=Development -e ASPNETCORE_URLS=http://+:80 api:tag
 
 </center>
