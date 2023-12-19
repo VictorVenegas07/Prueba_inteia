@@ -1,9 +1,8 @@
 using Application.Extensions;
 using Domain.Common.Interfaces;
-using Infrastructure.Context;
+using Domain.Settings;
 using Infrastructure.Extensions;
 using Infrastructure.Inicialize;
-using Infrastructure.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;

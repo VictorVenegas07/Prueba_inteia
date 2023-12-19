@@ -1,6 +1,6 @@
 ﻿using Domain.Common;
 using Domain.Common.Interfaces;
-using Infrastructure.Context;
+using Domain.Context;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Linq.Expressions;

@@ -1,5 +1,5 @@
 ﻿
-namespace Infrastructure.Extensions.Cors
+namespace Domain.Extensions.Cors
 {
     public class CoreSettings
     {

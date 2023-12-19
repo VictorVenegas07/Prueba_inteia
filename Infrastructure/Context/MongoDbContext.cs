@@ -1,5 +1,5 @@
-﻿using Infrastructure.Settings;
-using Microsoft.Extensions.Options;
+﻿using Domain.Context;
+using Domain.Settings;
 using MongoDB.Driver;
 
 namespace Infrastructure.Context
