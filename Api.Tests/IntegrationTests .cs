@@ -121,7 +121,7 @@ namespace Api.Tests
         }
 
         [Fact]
-        public async Task Put_Non_existent_ProviderId_Should_Return_Conflict()
+        public async Task Put_Non_existent_ProviderId_Should_Return_NotFound()
         {
             // Arrange
             var notExistId = "657a4bb67f2a33834ec999c3";

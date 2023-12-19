@@ -23,7 +23,7 @@ namespace Application.Services
 
         public async Task Delete(string id)
         {
-            var provider = await GetById(id);
+            await GetById(id);
             await _providerRepository.DeleteAsync(id);
         }
 
